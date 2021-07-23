@@ -10,7 +10,7 @@ public class Practice_2 {
 
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","421510");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test",Utils.user(),Utils.password());
             String sql = "select d.deptno,d.avgsal,e.ename,e.sal from (select " +
                     "deptno ,avg(sal) as avgsal from emp group by deptno) d " +
                     "join emp e on e.deptno = d.deptno and e.sal > d.avgsal";
