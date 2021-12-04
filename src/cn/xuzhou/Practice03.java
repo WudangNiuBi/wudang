@@ -11,7 +11,7 @@ public class Practice03 {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test",
-                    "root","421510");
+                    Utils.user(),Utils.password());
             String sql = "select e.deptno,avg(s.grade) as avgrade from emp e " +
                     "join salgrade s on e.sal between s.losal and s.hisal group by " +
                     "e.deptno order by e.deptno";

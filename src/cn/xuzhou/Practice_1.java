@@ -13,7 +13,7 @@ public class Practice_1 {
 
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","421510");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test",Utils.user(),Utils.password());
             String sql = "select e.ename,t.* from emp e join (select deptno, " +
                     "max(sal) as maxsal from emp group by deptno) t on " +
                     "e.deptno = t.deptno and t.maxsal = e.sal";
